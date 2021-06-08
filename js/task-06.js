@@ -1,9 +1,11 @@
 const inputEl = document.getElementById('validation-input')
 const dataLengthInput = document.querySelector('input[data-length]')
+console.log(dataLengthInput);
 
 inputEl.addEventListener('blur', e => {
 
   if (e.currentTarget.value.length === 6) {
+    console.log(dataLengthInput);
     e.currentTarget.classList.add("valid")
     e.currentTarget.classList.remove("invalid")
   } else {

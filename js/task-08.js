@@ -1,21 +1,17 @@
-const controls = {
-  numberControls: 0,
-  render() {
-    console.log('render -> this', this);
-    this.numberControls = numberControls
-  },
-  destroy() {
-    console.log('destroy -> this', this);
-    this.numberControls = numberControls
+const block = {
+  width: 0,
+  height: 0,
+  backgroundColor: 0,
+  size(a, b, c) {
+    this.width = `30px`
+    this.height = `30px`
+    this.backgroundColor = colors[randomizer(colors.length)]
+
   }
-
-  // boxes{
-
-  // }
 
 }
 
-const colors = ["red", "blue", "green"];
+const colors = ["red", "blue", "green", "orange", "purple"];
 
 const randomizer = max => {
   return Math.floor(Math.random() * max);
@@ -41,12 +37,15 @@ renderBtn.addEventListener('click', () => {
 })
 
 const createBoxes = (amount) => {
-  const block = document.createElement('div')
-  block.style.backgroundColor = colors[randomizer(colors.length)]
-  block.style.width = '30px'
-  block.style.height = '30px'
 
-  boxesEl.append(block)
+
+
+  // const block = document.createElement('div')
+  // block.style.backgroundColor = colors[randomizer(colors.length)]
+  // block.style.width = '30px'
+  // block.style.height = '30px'
+
+  boxesEl.append(block.size(30, 30, 30))
 }
 
 console.log(createBoxes(3));
