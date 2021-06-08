@@ -7,20 +7,13 @@ const ingredients = [
   'Приправы',
 ];
 
-const list = document.querySelector('#ingredients')
+const listEl = document.querySelector('#ingredients')
 
-const markup = ingredients.forEach((ingredient) => {
-  const ing = ingredient
-  const itemEl = document.createElement('li');
-  itemEl.textContent = `${ing}`
-  list.append(itemEl)
+const markup = ingredients.map(option => {
+  const itemEl = document.createElement('li')
+  itemEl.textContent = option
+  return itemEl
 })
 
-// 2-й вариант решения задания
-
-// const markup = ingredients.reduce(
-//   (string, ingredient) => string + `< li > ${ ingredient }</li > `,
-//   ""
-// );
-// list.innerHTML(markup)
+listEl.append(...markup)
 

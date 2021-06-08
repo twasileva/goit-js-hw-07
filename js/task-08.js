@@ -2,7 +2,7 @@ const block = {
   width: 0,
   height: 0,
   backgroundColor: 0,
-  size(a, b, c) {
+  size() {
     this.width = `30px`
     this.height = `30px`
     this.backgroundColor = colors[randomizer(colors.length)]
