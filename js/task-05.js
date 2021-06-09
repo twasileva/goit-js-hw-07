@@ -1,7 +1,7 @@
 const inputEl = document.getElementById('name-input')
 const titleEl = document.getElementById('name-output')
 
-inputEl.addEventListener('blur', e => {
+inputEl.addEventListener('input', e => {
 
   if (e.currentTarget.value <= 0) {
     titleEl.textContent = 'незнакомец'
