@@ -19,16 +19,7 @@ const galleryEl = document.querySelector('#gallery')
 galleryEl.classList.add('list')
 
 const addGallery = images.map(option => {
-  const items = document.createElement('li')
-  items.classList.add('item')
+  return `<li class='item'><img class='img' src='${option.url}' alt='${option.alt}'></li>`
+}).join('')
 
-  const image = document.createElement('img')
-  image.src = option.url
-  image.alt = option.alt
-  image.classList.add('img')
-
-  items.appendChild(image)
-  return items
-})
-
-galleryEl.append(...addGallery)
+galleryEl.insertAdjacentHTML('afterbegin', addGallery)
