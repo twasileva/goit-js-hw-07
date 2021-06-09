@@ -14,14 +14,21 @@ const images = [
 ];
 
 const galleryEl = document.querySelector('#gallery')
-const itemsEl = document.querySelectorAll('li')
-const imgEl = document.querySelectorAll('img')
 
-const addGallery = images.map((image) => {
-  galleryEl.insertAdjacentHTML("afterbegin", `<li><img src='${image.url}' alt='${image.alt}'></li>`)
-})
 
 galleryEl.classList.add('list')
-itemsEl.classList.add('li')
-imgEl.classList.add('img')
 
+const addGallery = images.map(option => {
+  const items = document.createElement('li')
+  items.classList.add('item')
+
+  const image = document.createElement('img')
+  image.src = option.url
+  image.alt = option.alt
+  image.classList.add('img')
+
+  items.appendChild(image)
+  return items
+})
+
+galleryEl.append(...addGallery)
