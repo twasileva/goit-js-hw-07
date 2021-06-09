@@ -38,6 +38,8 @@ const createBoxes = (amount) => {
 }
 console.log(createBoxes(setInputValue));
 
+
+
 // алгоритм решения задачи
 
 // задать начальные данные блока в массиве
