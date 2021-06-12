@@ -7,47 +7,38 @@ const randomizer = max => {
 };
 
 const inputEl = document.querySelector('input')
-const renderBtn = document.querySelector('button[data-action="render"]')
-const destroyBtn = document.querySelector('button[data-action="destroy"]')
+const renderBtnEl = document.querySelector('button[data-action="render"]')
+const destroyBtnEl = document.querySelector('button[data-action="destroy"]')
 const boxesEl = document.querySelector('#boxes')
 
-const form = document.createElement('div')
-boxesEl.append(form)
 
+inputEl.addEventListener('input', onSetValueInput)
+renderBtnEl.addEventListener('click', createBoxes)
+destroyBtnEl.addEventListener('click', destroyBoxes)
 
-const setInputValue = inputEl.addEventListener('input', e => {
-  const inputValue = Number(e.currentTarget.value);
-  console.log(inputValue);
-
-})
-
-renderBtn.addEventListener('click', () => {
-  createBoxes()
-
-})
-
-const createBoxes = (amount) => {
-
-  for (let i = 0; i <= amount; i += 1) {
-
-    form.style.cssText = block[randomizer(block.length)]
-    form.style.backgroundColor = colors[randomizer(colors.length)]
-
-  }
-  return form
+function onSetValueInput(event) {
+  const valueInputEl = Number(event.currentTarget.value)
+  return valueInputEl
 }
-console.log(createBoxes(setInputValue));
 
+function createBoxes(amount) {
 
+  for (let i = 0; i < 5; i += 1) {
+    const box = document.createElement('div')
+    box.style.width = '30px'
+    box.style.height = '30px'
+    box.style.backgroundColor = colors[randomizer(colors.length)]
 
-// алгоритм решения задачи
+    if (i > 1) {
+      box.style.width = '30px' + '10px'
+      box.style.height = '30px' + '10px'
+    }
+    boxesEl.append(box)
+  }
+  console.log(boxesEl);
+}
 
-// задать начальные данные блока в массиве
-// сделать рандомную функцию для выбора цвета
-// массив цветов
-// получить доступ ко всем дом-узлам: инпут, кнопки, див
-// получить значение из инпута
-// повесить слушателя событий на кнопку Создать, куда передать функцию createBoxes
-// написать ф-цию createBoxes
-// повесить слушателя событий на кнопку Очистить
+function destroyBoxes() {
+  boxesEl.remove()
+}
 
