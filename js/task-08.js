@@ -1,6 +1,6 @@
 const block = ["width: 30px; height: 30px"]
 
-const colors = ["red", "blue", "green", "orange", "purple"];
+const colors = ["red", "blue", "green", "orange", "purple", "black", "tomato"];
 
 const randomizer = max => {
   return Math.floor(Math.random() * max);
