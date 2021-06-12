@@ -16,12 +16,16 @@ inputEl.addEventListener('input', onSetValueInput)
 renderBtnEl.addEventListener('click', createBoxes)
 destroyBtnEl.addEventListener('click', destroyBoxes)
 
+// получила значение из инпута
 function onSetValueInput(event) {
   const valueInputEl = Number(event.currentTarget.value)
   return valueInputEl
 }
 
+
 function createBoxes(amount) {
+  onSetValueInput(amount)
+  console.log(onSetValueInput(amount));
 
   for (let i = 0; i < 5; i += 1) {
     const box = document.createElement('div')
