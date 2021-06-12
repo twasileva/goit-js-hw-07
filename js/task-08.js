@@ -12,37 +12,39 @@ const destroyBtnEl = document.querySelector('button[data-action="destroy"]')
 const boxesEl = document.querySelector('#boxes')
 
 
-inputEl.addEventListener('input', onSetValueInput)
 renderBtnEl.addEventListener('click', createBoxes)
 destroyBtnEl.addEventListener('click', destroyBoxes)
 
-// получила значение из инпута
-function onSetValueInput(event) {
-  const valueInputEl = Number(event.currentTarget.value)
-  return valueInputEl
-}
+
 
 
 function createBoxes(amount) {
-  onSetValueInput(amount)
-  console.log(onSetValueInput(amount));
 
-  for (let i = 0; i < 5; i += 1) {
-    const box = document.createElement('div')
-    box.style.width = '30px'
-    box.style.height = '30px'
-    box.style.backgroundColor = colors[randomizer(colors.length)]
+  inputEl.addEventListener('input', onSetValueInput)
 
-    if (i > 1) {
-      box.style.width = '30px' + '10px'
-      box.style.height = '30px' + '10px'
+  function onSetValueInput(event) {
+    const amount = Number(event.currentTarget.value)
+    const arrBoxes = []
+    let totalSize = 30
+
+    for (let i = 1; i <= amount; i += 1) {
+      console.log(amount);
+      const box = document.createElement('div')
+      totalSize += 10
+      box.style.width = `${totalSize}px`
+      box.style.height = `${totalSize}px`
+      box.style.backgroundColor = colors[randomizer(colors.length)]
+
+      arrBoxes.push(box)
     }
-    boxesEl.append(box)
+    boxesEl.append(...arrBoxes)
+    inputEl.textContent = ''
   }
-  console.log(boxesEl);
 }
+const newBlocks = boxesEl.children
+console.log(newBlocks);
 
 function destroyBoxes() {
-  boxesEl.remove()
+  boxesEl.removeChild(...newBlocks)
 }
 
