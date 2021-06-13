@@ -42,6 +42,6 @@ const newBlocks = boxesEl.children
 console.log(newBlocks);
 
 function destroyBoxes() {
-  boxesEl.removeChild(...newBlocks)
+  boxesEl.innerHTML = "";
 }
 
