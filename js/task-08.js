@@ -16,30 +16,27 @@ renderBtnEl.addEventListener('click', createBoxes)
 destroyBtnEl.addEventListener('click', destroyBoxes)
 
 
-
-
 function createBoxes(amount) {
+  amount = Number(inputEl.value)
+  console.log(amount);
 
-  inputEl.addEventListener('input', onSetValueInput)
+  const arrBoxes = []
+  let totalSize = 30
 
-  function onSetValueInput(event) {
-    const amount = Number(event.currentTarget.value)
-    const arrBoxes = []
-    let totalSize = 30
+  for (let i = 1; i <= amount; i += 1) {
+    const box = document.createElement('div')
+    totalSize += 10
+    box.style.width = `${totalSize}px`
+    box.style.height = `${totalSize}px`
+    box.style.backgroundColor = colors[randomizer(colors.length)]
 
-    for (let i = 1; i <= amount; i += 1) {
-      console.log(amount);
-      const box = document.createElement('div')
-      totalSize += 10
-      box.style.width = `${totalSize}px`
-      box.style.height = `${totalSize}px`
-      box.style.backgroundColor = colors[randomizer(colors.length)]
-
-      arrBoxes.push(box)
-    }
+    arrBoxes.push(box)
     boxesEl.append(...arrBoxes)
-    inputEl.textContent = ''
+    inputEl.value = ''
+
   }
+
+
 }
 const newBlocks = boxesEl.children
 console.log(newBlocks);
