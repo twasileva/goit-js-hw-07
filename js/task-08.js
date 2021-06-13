@@ -38,8 +38,6 @@ function createBoxes(amount) {
 
 
 }
-const newBlocks = boxesEl.children
-console.log(newBlocks);
 
 function destroyBoxes() {
   boxesEl.innerHTML = "";
